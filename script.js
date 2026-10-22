@@ -1417,36 +1417,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 6. COPY EMAIL ACTION
+  // 6. COPY EMAIL ACTION (HERO & CONTACT CHANNELS)
   // =========================================================================
   const copyEmailCard = document.getElementById('copyEmailCard');
+  const heroEmailBtn = document.getElementById('heroEmailBtn');
   const copyBadge = document.getElementById('copyBadge');
 
-  if (copyEmailCard) {
-    copyEmailCard.addEventListener('click', (e) => {
-      const email = 'azilatgrn01@gmail.com';
-      const dict = i18n[currentLang] || i18n.en;
-      navigator.clipboard.writeText(email).then(() => {
-        if (copyBadge) {
-          copyBadge.textContent = currentLang === 'id' ? 'Tersalin! ✅' : 'Copied! ✅';
-          copyBadge.style.background = '#10B981';
-          copyBadge.style.color = '#FFFFFF';
-          setTimeout(() => {
-            copyBadge.textContent = dict.badgeCopy;
-            copyBadge.style.background = '';
-            copyBadge.style.color = '';
-          }, 2500);
-        }
-        showToast(dict.emailCopiedToast);
-        triggerConfetti(e.clientX, e.clientY, 30);
-      }).catch(() => {
-        showToast(`Email: ${email}`);
-      });
+  function triggerCopyEmail(e) {
+    const email = 'azilatgrn01@gmail.com';
+    const dict = i18n[currentLang] || i18n.en;
+    navigator.clipboard.writeText(email).then(() => {
+      if (copyBadge) {
+        copyBadge.textContent = currentLang === 'id' ? 'Tersalin! ✅' : 'Copied! ✅';
+        copyBadge.style.background = '#10B981';
+        copyBadge.style.color = '#FFFFFF';
+        setTimeout(() => {
+          copyBadge.textContent = dict.badgeCopy || 'Copy 📋';
+          copyBadge.style.background = '';
+          copyBadge.style.color = '';
+        }, 2500);
+      }
+      showToast(dict.emailCopiedToast || `Email copied: ${email}`, '✉️');
+      triggerConfetti(e?.clientX || window.innerWidth / 2, e?.clientY || window.innerHeight / 2, 30);
+    }).catch(() => {
+      showToast(`Email: ${email}`, '✉️');
     });
   }
 
+  if (copyEmailCard) copyEmailCard.addEventListener('click', triggerCopyEmail);
+  if (heroEmailBtn) heroEmailBtn.addEventListener('click', triggerCopyEmail);
+
   // =========================================================================
-  // 7. DOWNLOAD CV (GENERATED IN CURRENT ACTIVE LANGUAGE)
+  // 7. DOWNLOAD / VIEW OFFICIAL CV (PDF)
   // =========================================================================
   const cvButtons = [
     document.getElementById('downloadCvBtn'),
@@ -1457,155 +1459,13 @@ document.addEventListener('DOMContentLoaded', () => {
   cvButtons.forEach(btn => {
     if (btn) {
       btn.addEventListener('click', (e) => {
-        e.preventDefault();
         const dict = i18n[currentLang] || i18n.en;
-        showToast(dict.preparingCvToast);
-        triggerConfetti(e.clientX, e.clientY, 35);
-
-        setTimeout(() => {
-          let resumeContent = '';
-          if (currentLang === 'id') {
-            resumeContent = `===================================================================
-CURRICULUM VITAE — NUR AZILA TARIGAN, S.Kom.
-Spesialis Sistem Informasi | Full-Stack Web Developer | Data Analytics
-Email: azilatgrn01@gmail.com
-WhatsApp: +62 821-7281-2663
-LinkedIn: https://www.linkedin.com/in/nurazilatarigan
-GitHub: https://github.com/Azilatarigan01
-Domisili: Lhokseumawe, Kab. Aceh Utara, Indonesia
-Status: Terbuka untuk Penempatan Kerja Penuh Waktu (Full-Time) / Kontrak
-===================================================================
-
-RINGKASAN PROFIL:
-Lulusan S1 Sistem Informasi Universitas Malikussaleh dengan Indeks Prestasi
-Kumulatif (IPK) 3,68 / 4,00. Berpengalaman dalam perancangan aplikasi web
-enterprise (Laravel, Python, React), analisis spasial WebGIS, analisis
-sistem informasi, serta desain grafis digital & undangan kreatif (Canva),
-serta akuntabilitas kepemimpinan organisasi sebagai Bendahara Nasional PPM 3
-Universitas Airlangga dan Head of Administrasi Relawan Bencana Banjir.
-
-PENDIDIKAN FORMAL:
-1. Universitas Malikussaleh (2022 – 2026)
-   - Sarjana Komputer (S1) Sistem Informasi
-   - IPK: 3,68 / 4,00 (Predikat Sangat Memuaskan)
-2. Universitas Airlangga (UNAIR), Surabaya (2023)
-   - Program Pertukaran Mahasiswa Merdeka Batch 3 (PPM 3)
-   - Posisi: Bendahara Utama Kegiatan
-3. SMK Al Washliyah 2 Perdagangan (2019 – 2022)
-   - Rekayasa Perangkat Lunak (RPL)
-   - Prestasi: Lulusan Terbaik Jurusan RPL
-
-PENGALAMAN KERJA / MAGANG:
-1. IT Developer Intern — PT Perkebunan Nusantara (PTPN IV) Regional II (Jan 2025 – Feb 2025)
-   - Mengembangkan sistem informasi web operasional dan portal aspirasi karyawan (Lapor Pak!).
-   - Bekerja sama dengan Office Personnel Assistant merancang alur kerja data dan modul tiket aduan.
-   - Mengelola arsitektur database MySQL yang terintegrasi.
-2. IT Support Intern — PT Industri Nabati Lestari (INL) KEK Sei Mangkei (Des 2021 – Mar 2022)
-   - Mendukung operasional sistem ERP enterprise (Odoo ERP), verifikasi dan rekonsiliasi data produksi.
-   - Troubleshooting kendala teknis pengguna dan pendokumentasian hasil penanganan sistem.
-
-PENGALAMAN KEPEMIMPINAN & ORGANISASI:
-1. Kepala Departemen Kewirausahaan (KWU) — BEM Fakultas Teknik Universitas Malikussaleh
-   - Memimpin operasional unit usaha departemen dan menyusun Laporan Pertanggungjawaban (LPJ) resmi.
-2. Bendahara Kelompok — Program Pertukaran Mahasiswa Merdeka (PMM 3) Universitas Airlangga
-   - Mengelola kas keuangan dan operasional kegiatan kelompok Modul Nusantara.
-3. Head of Administrasi — Relawan Penanggulangan Bencana Banjir Aceh Tamiang
-   - Memimpin divisi administrasi posko tanggap darurat, pendataan korban, dan verifikasi logistik.
-
-KEAHLIAN TEKNIS:
-- Web: PHP, Laravel, Python (Flask/Django), JavaScript, React.js, Tailwind CSS, Bootstrap
-- Data & GIS: Pandas, Scikit-learn, Facebook Prophet, Leaflet.js, GeoDa, Moran's I
-- Basis Data: MySQL, PostgreSQL, RESTful API
-- Tools: Figma, Canva, Git, GitHub, Notion, Odoo ERP
-
-PROYEK UNGGULAN:
-1. Tabsy App (Live: tabsyapp.vercel.app)
-2. OrderFlow Enterprise (Live: orderflow-enterprise.vercel.app)
-3. Lapor Pak! PTPN IV (GitHub: Azilatarigan01/laporpak-ptpn4)
-4. WebGIS Analisis Spasial TB Aceh Utara (GitHub: Azilatarigan01/webgis_tbacehutara)
-5. E-Learning SMA Tuna Bangsa (GitHub: Azilatarigan01/laravel)
-6. RFID Student Monitoring with Auto Photo Capture (Riset IoT & Smart Campus)
-
-Hak Cipta © 2026 Nur Azila Tarigan, S.Kom.
-`;
-          } else {
-            resumeContent = `===================================================================
-CURRICULUM VITAE — NUR AZILA TARIGAN, S.Kom.
-Information Systems Specialist | Full-Stack Web Developer | Data & GIS Analyst
-Email: azilatgrn01@gmail.com
-WhatsApp: +62 821-7281-2663
-LinkedIn: https://www.linkedin.com/in/nurazilatarigan
-GitHub: https://github.com/Azilatarigan01
-Location: Lhokseumawe / North Aceh, Indonesia
-Availability: Open for Full-Time Placements & Enterprise Engineering Contracts
-===================================================================
-
-EXECUTIVE SUMMARY:
-Information Systems graduate from Universitas Malikussaleh with a Cumulative GPA
-of 3.68 / 4.00. Proven expertise in engineering full-stack enterprise web systems
-(Laravel, Python, React.js), spatial predictive WebGIS applications, system analysis,
-and digital creative design (Canva Pro). Holds verified leadership track records as
-Head of Entrepreneurship in BEM Faculty of Engineering, Group Treasurer for PMM 3
-Universitas Airlangga, and Head of Administration for Disaster Relief Operations.
-
-EDUCATION:
-1. Universitas Malikussaleh (2022 – 2026)
-   - Bachelor of Computer Science (S.Kom.) in Information Systems
-   - Cumulative GPA: 3.68 / 4.00 (Very Satisfactory)
-2. Universitas Airlangga (UNAIR), Surabaya (2023)
-   - Merdeka Student Exchange Program Batch 3 (PMM 3)
-   - Role: Group Treasurer (Modul Nusantara)
-3. SMK Al Washliyah 2 Perdagangan (2019 – 2022)
-   - Software Engineering (RPL)
-   - Honor: Top Graduate in Software Engineering (RPL)
-
-PROFESSIONAL EXPERIENCE:
-1. IT Developer Intern — PT Perkebunan Nusantara (PTPN IV) Regional II (Jan 2025 – Feb 2025)
-   - Engineered operational information system solutions and enterprise whistleblower platform (Lapor Pak!).
-   - Collaborated with Office Personnel Assistants to map reporting workflows and access controls.
-   - Designed normalized relational MySQL database schemas.
-2. IT Support Intern — PT Industri Nabati Lestari (INL) (Dec 2021 – Mar 2022)
-   - Managed refinery operational data verification and reconciliation via enterprise ERP (Odoo ERP).
-   - Diagnosed hardware, network, and application issues directly with end-users.
-
-ORGANIZATIONAL LEADERSHIP:
-1. Head of Entrepreneurship Department (KWU) — BEM Faculty of Engineering, Univ. Malikussaleh
-   - Directed departmental commercial initiatives and authored official accountability reports (LPJ).
-2. Group Treasurer — Merdeka Student Exchange Program (PMM Batch 3) Universitas Airlangga
-   - Managed group operational disbursements and activity funds for Modul Nusantara.
-3. Head of Administration — Aceh Tamiang Flood Disaster Emergency Operations
-   - Directed disaster victim registration and verified incoming/outgoing relief logistics.
-
-TECHNICAL PROFICIENCIES:
-- Web & Frameworks: PHP, Laravel, Python (Flask/Django), JavaScript, React.js, Tailwind, HTML5, CSS3
-- Data Science & GIS: Pandas, NumPy, Scikit-learn, Facebook Prophet, Leaflet.js, GeoDa, Moran's I
-- Databases & Analysis: MySQL, PostgreSQL, RESTful API, Schema Design, System Analysis & DFD
-- Design & Tools: Canva Pro (Digital Invitation Design), Figma UI/UX, Git, GitHub, Notion, Odoo ERP
-
-SIGNIFICANT PROJECTS:
-1. Tabsy App (Live: tabsyapp.vercel.app) — Productivity Workspace Manager.
-2. OrderFlow Enterprise (Live: orderflow-enterprise.vercel.app) — B2B Procurement System.
-3. Lapor Pak! PTPN IV (GitHub: Azilatarigan01/laporpak-ptpn4) — Whistleblowing Platform.
-4. WebGIS TB Analysis & Forecasting (GitHub: Azilatarigan01/webgis_tbacehutara) — Spatial GIS & AI.
-5. SMA Tuna Bangsa E-Learning (GitHub: Azilatarigan01/laravel) — Academic LMS Platform.
-6. RFID Student Monitoring with Auto Photo Capture (IoT & Smart Campus Research).
-
-Copyright © 2026 Nur Azila Tarigan, S.Kom. All Rights Reserved.
-`;
-          }
-
-          const blob = new Blob([resumeContent], { type: 'text/plain;charset=utf-8' });
-          const downloadUrl = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = downloadUrl;
-          a.download = currentLang === 'id' ? 'CV_Nur_Azila_Tarigan_SKom_2026_ID.txt' : 'CV_Nur_Azila_Tarigan_BSc_2026_EN.txt';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(downloadUrl);
-
-          showToast(dict.cvDownloadedToast);
-        }, 400);
+        showToast(dict.preparingCvToast || 'Opening official CV document...', '📄');
+        triggerConfetti(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 35);
+        if (btn.tagName.toLowerCase() !== 'a') {
+          e.preventDefault();
+          window.open('assets/cv-nur-azila-tarigan.pdf', '_blank');
+        }
       });
     }
   });
@@ -1617,13 +1477,29 @@ Copyright © 2026 Nur Azila Tarigan, S.Kom. All Rights Reserved.
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('formName')?.value || 'Guest';
-      const dict = i18n[currentLang] || i18n.en;
-      showToast(dict.formSentToast(name));
-      triggerConfetti(window.innerWidth / 2, window.innerHeight / 2, 45);
+      const name = document.getElementById('formName')?.value.trim() || 'Recruiter';
+      const email = document.getElementById('formEmail')?.value.trim() || '';
+      const subject = document.getElementById('formSubject')?.value.trim() || 'Portfolio Inquiry';
+      const message = document.getElementById('formMessage')?.value.trim() || '';
+
+      triggerConfetti(window.innerWidth / 2, window.innerHeight * 0.6, 45);
+
+      const isId = currentLang === 'id';
+      const toastText = isId
+        ? `Terima kasih Kak ${name}! Membuka draf email untuk mengirim pesan... ✨`
+        : `Thank you, ${name}! Preparing email inquiry... ✨`;
+      showToast(toastText, '🚀');
+
+      const mailtoUrl = `mailto:azilatgrn01@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent('Hi Azila,\n\n' + message + '\n\n---\nSender: ' + name + '\nEmail: ' + email)}`;
+
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 750);
+
       contactForm.reset();
     });
   }
+
 
   // =========================================================================
   // 9. TOAST NOTIFICATION UTILITY
@@ -1631,9 +1507,11 @@ Copyright © 2026 Nur Azila Tarigan, S.Kom. All Rights Reserved.
   const siteToast = document.getElementById('siteToast');
   const toastMsg = document.getElementById('toastMsg');
 
-  function showToast(message) {
+  function showToast(message, icon = '✨') {
     if (!siteToast || !toastMsg) return;
     toastMsg.textContent = message;
+    const iconEl = siteToast.querySelector('.toast-icon');
+    if (iconEl) iconEl.textContent = icon;
     siteToast.classList.add('show');
     clearTimeout(siteToast._timeout);
     siteToast._timeout = setTimeout(() => {
@@ -2027,14 +1905,20 @@ Copyright © 2026 Nur Azila Tarigan, S.Kom. All Rights Reserved.
       closeAwardModal();
     }
   });
-  // Walking Mascot Click Hop & Celebration
+
+
+
+
+  // =========================================================================
+  // 10. WALKING MASCOT CLICK HOP & CELEBRATION
+  // =========================================================================
   const walkingBotDuo = document.getElementById('walkingBotDuo');
   if (walkingBotDuo) {
     walkingBotDuo.addEventListener('click', (e) => {
       walkingBotDuo.classList.add('hop');
       triggerConfetti(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight - 80, 40);
       const msg = currentLang === 'id' ? '🐾 Maskot setia memberi semangat untukmu! ✨' : '🐾 Mascot companions cheering for you! ✨';
-      showToast(msg);
+      showToast(msg, '🐾');
       setTimeout(() => {
         walkingBotDuo.classList.remove('hop');
       }, 600);
