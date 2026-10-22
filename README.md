@@ -1,131 +1,126 @@
-# ✨ Nur Azila Tarigan, S.Kom. — Official Portfolio Website
-
 <div align="center">
 
-![Portfolio Banner](assets/porto_hero.png)
+# 🌐 Personal Portfolio Website
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://vercel.com)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Portfolio Status](https://img.shields.io/badge/Status-Active%20%26%20Maintained-success?style=for-the-badge&logo=git)](https://github.com/Azilatarigan01/portofolio-)
+[![Vercel Deployment](https://img.shields.io/badge/Deployment-Vercel%20Ready-000000?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![Tech Stack](https://img.shields.io/badge/Tech-HTML5%20%7C%20CSS3%20%7C%20ES6+-E34F26?style=for-the-badge&logo=html5)](https://developer.mozilla.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-**Spesialis Sistem Informasi | Full-Stack Web Developer | Data & GIS Analyst**  
-*Lulusan S1 Sistem Informasi Universitas Malikussaleh (IPK 3,68 / 4,00)*
+<br/>
 
-[🌐 Live Demo (Vercel)](#-deployment--live-url) • [📁 Proyek Unggulan](#-proyek-unggulan) • [💼 Pengalaman](#-pengalaman-profesional--organisasi) • [📫 Kontak](#-kontak--kolaborasi)
+**A modern, responsive, and high-performance interactive portfolio web application.**  
+Showcasing enterprise engineering projects, spatial data analytics, and full-stack solutions.
+
+<br/>
+
+[🌟 Key Highlights](#-key-features) • [🛠️ Tech Stack](#-technology-stack) • [🚀 Featured Projects](#-featured-projects) • [💻 Local Setup](#-local-development) • [📬 Connect](#-connect--professional-inquiries)
+
+---
 
 </div>
 
+## 📖 Overview
+
+This repository contains the source code for the official personal portfolio website. Engineered with a focus on modern aesthetic design principles, high page performance, and seamless user experience across all devices.
+
+### 🌟 Key Features
+
+- **🎨 Modern Glassmorphism & Ambient Aesthetic:** Curated color palettes with responsive glassmorphic cards and smooth transitions.
+- **🌐 Dual-Language Support (ID / EN):** Instant client-side language switching without page reload.
+- **📱 Responsive & Cross-Platform:** Fluid layouts optimized for ultra-wide monitors, desktop screens, tablets, and smartphones.
+- **⚡ Dynamic Project Filtering:** Interactive category-based filtering across enterprise web, spatial data / AI, and interface design.
+- **🚀 Zero Heavy Dependencies:** Built using native Web standards (HTML5 Semantic, CSS3 Modern Flexbox/Grid, and Vanilla ES6+ JavaScript) ensuring sub-second load times and high Lighthouse performance scores.
+- **🔒 Privacy-Focused Architecture:** Sanitized public endpoints and modular design for production deployments.
+
 ---
 
-## 📌 Tentang Portofolio
+## 🛠️ Technology Stack
 
-Website portofolio ini dirancang secara khusus untuk menampilkan profil profesional, rekam jejak akademik, pengalaman industri, kepemimpinan organisasi, serta portofolio proyek rekayasa perangkat lunak dan analisis data dari **Nur Azila Tarigan, S.Kom.**
-
-### 🌟 Fitur Utama Website:
-- **🎨 Modern Aesthetic & Glassmorphism Design:** Tampilan bersih (*Clean Sky Ambient Light*), tipografi modern (*Plus Jakarta Sans*, *Playfair Display*, *Space Grotesk*), dan palet warna profesional.
-- **🌐 Dual Language Support (ID / EN):** Tombol pengalih bahasa real-time (Bahasa Indonesia & English) tanpa perlu reload halaman.
-- **📱 Responsive & Mobile Optimized:** Layout adaptif untuk semua resolusi (Desktop, Tablet, dan Mobile Phone) dengan navigasi drawer sentuh yang mulus.
-- **⚡ Filter Proyek Interaktif:** Filter kategori proyek (*Semua, Web Enterprise, WebGIS & AI, UI/UX Design*).
-- **📄 Download CV / Resume:** Unduh ringkasan riwayat hidup resmi langsung dari antarmuka web.
-- **🚀 Ultra-Fast & Zero Dependencies:** Dibangun dengan Vanilla HTML5, CSS3 kustom, dan Vanilla ES6+ JavaScript untuk kecepatan muat optimal (100% Google PageSpeed ready).
-
----
-
-## 🛠️ Tech Stack & Alat Pengembangan
-
-| Kategori | Teknologi & Tools |
+| Layer | Technologies & Tools |
 | :--- | :--- |
-| **Frontend Web** | HTML5 Semantic, Modern CSS3 (CSS Variables, Flexbox, CSS Grid), Vanilla JavaScript (ES6+) |
-| **Desain & Aset** | Figma, Canva Pro, Glassmorphism UI Components |
-| **Hosting & CI/CD** | Vercel Platform, Git, GitHub |
-| **Bahasa & Backend** | PHP (Laravel), Python (Flask/Django), Node.js, RESTful API |
-| **Basis Data** | MySQL, PostgreSQL |
-| **Data Science & GIS** | Leaflet.js, GeoDa, Pandas, Scikit-learn, Facebook Prophet |
+| **Frontend Core** | HTML5 Semantic Architecture, Modern CSS3 (CSS Variables, Flexbox, CSS Grid), Vanilla ES6+ JavaScript |
+| **Styling & Effects** | Glassmorphism UI, Ambient Glows, Custom Micro-Animations, Google Fonts Typography |
+| **Backend & APIs** | RESTful Architecture, PHP (Laravel Ecosystem), Python (Flask/Data Processing), Node.js |
+| **Data & Spatial Analytics** | Leaflet.js, Spatial Statistics (Moran's I), GIS Data Pipeline, SQL Databases (MySQL, PostgreSQL) |
+| **Infrastructure & CI/CD** | Git Version Control, GitHub, Vercel Production Deployment |
 
 ---
 
-## 🚀 Proyek Unggulan
+## 🚀 Featured Projects
 
-<div align="center">
-
-| Proyek | Deskripsi | Tautan / Demo |
-| :--- | :--- | :--- |
-| **Tabsy App** | Aplikasi produktivitas ruang kerja dan manajemen tab modern untuk efisiensi alur kerja browser. | [tabsyapp.vercel.app](https://tabsyapp.vercel.app) |
-| **OrderFlow Enterprise** | Platform sistem informasi pengadaan barang (procurement) dan monitoring inventaris B2B. | [orderflow-enterprise.vercel.app](https://orderflow-enterprise.vercel.app) |
-| **Lapor Pak! PTPN IV** | Sistem pelaporan aspirasi, aduan operasional, dan kepatuhan internal karyawan PTPN IV Regional II. | [GitHub Repository](https://github.com/Azilatarigan01/laporpak-ptpn4) |
-| **WebGIS Tuberkulosis Aceh Utara** | Sistem informasi geografis prediksi spasial sebaran kasus TB menggunakan Moran's I & Machine Learning. | [GitHub Repository](https://github.com/Azilatarigan01/webgis_tbacehutara) |
-| **E-Learning SMA Tuna Bangsa** | Learning Management System terpadu dengan modul materi, penugasan, dan evaluasi CBT berbasis Laravel. | [GitHub Repository](https://github.com/Azilatarigan01/laravel) |
-| **RFID Smart Campus Monitoring** | Prototipe presensi otomatis mahasiswa berbasis IoT RFID dilengkapi pengambilan foto wajah verifikasi. | Riset IoT Smart Campus |
-
-</div>
+| Project | Domain | Description | Link |
+| :--- | :--- | :--- | :--- |
+| **Tabsy App** | Web App / Productivity | Modern workspace productivity and browser tab workflow manager. | [Live Demo](https://tabsyapp.vercel.app) |
+| **OrderFlow Enterprise** | Enterprise B2B | Procurement management, inventory monitoring, and requisition tracking system. | [Live Demo](https://orderflow-enterprise.vercel.app) |
+| **Lapor Pak! Enterprise** | Internal Operations | Centralized corporate aspiration, incident reporting, and compliance portal. | [Repository](https://github.com/Azilatarigan01/laporpak-ptpn4) |
+| **WebGIS Spatial Health Analytics** | GIS & Data Analytics | Spatial epidemiology modeling and tuberculosis pattern prediction using Moran's I & ML. | [Repository](https://github.com/Azilatarigan01/webgis_tbacehutara) |
+| **Integrated Academic LMS** | EdTech / Management | Unified learning management platform with automated grading and course modules. | [Repository](https://github.com/Azilatarigan01/laravel) |
+| **IoT Smart Campus Access** | Embedded & IoT | Automated attendance prototype using RFID and computer vision verification. | *R&D Prototype* |
 
 ---
 
-## 💼 Pengalaman Profesional & Organisasi
+## 📁 Repository Structure
 
-- **IT Developer Intern — PT Perkebunan Nusantara (PTPN IV) Regional II** (Jan 2025 – Feb 2025)
-  - Merancang sistem portal aduan terintegrasi (*Lapor Pak!*) dan otomasi alur kerja administrasi personel.
-- **IT Support Intern — PT Industri Nabati Lestari (INL) KEK Sei Mangkei** (Des 2021 – Mar 2022)
-  - Mengelola operasional Odoo ERP, verifikasi rekonsiliasi data produksi kilang sawit, dan technical support.
-- **Bendahara Kelompok — Pertukaran Mahasiswa Merdeka (PMM 3) Universitas Airlangga (UNAIR)** (2023)
-  - Mengelola anggaran operasional dan menyusun pertanggungjawaban dana kegiatan Modul Nusantara.
-- **Kepala Departemen Kewirausahaan — BEM Fakultas Teknik Universitas Malikussaleh** (2023 – 2024)
-  - Memimpin divisi usaha fakultas, perencanaan program kerja, dan pelaporan keuangan.
-- **Head of Administrasi Relawan — Posko Tanggap Bencana Banjir Aceh Tamiang**
-  - Mengkoordinasikan pendataan korban, verifikasi inventaris bantuan, dan logistik lapangan.
+```plaintext
+website-porto-2026/
+├── assets/                 # Optimized media, icons, and visual assets
+├── index.html              # Main semantic HTML structure & markup
+├── styles.css              # Custom design system, CSS variables & layouts
+├── script.js               # Reactive logic, i18n localization & interaction handling
+├── vercel.json             # Deployment routing and platform headers
+└── README.md               # Technical project documentation
+```
 
 ---
 
-## 💻 Menjalankan Secara Lokal
+## 💻 Local Development
 
-1. **Clone repository ini:**
+### Prerequisites
+A modern web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari) and a text editor / IDE.
+
+### Steps
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Azilatarigan01/portofolio-.git
    cd portofolio-
    ```
 
-2. **Buka langsung di browser:**
-   - Cukup buka file `index.html` dengan klik dua kali, atau
-   - Gunakan extension **Live Server** di VS Code, atau
-   - Jalankan local server via Python/Node:
+2. **Run locally:**
+   - **Direct Access:** Open `index.html` directly in your favorite browser.
+   - **Using Python HTTP Server:**
      ```bash
-     # Menggunakan Python
      python -m http.server 3000
      ```
-   - Buka `http://localhost:3000` di browser Anda.
+     Access at `http://localhost:3000`
+   - **Using Node `npx serve`:**
+     ```bash
+     npx serve .
+     ```
 
 ---
 
-## ☁️ Deployment ke Vercel
+## ☁️ Deployment
 
-Repository ini telah dikonfigurasi dengan file `vercel.json` sehingga langsung siap di-deploy ke Vercel.
+### One-Click Deploy to Vercel
+This repository is pre-configured with `vercel.json` for zero-configuration static deployment:
 
-### Cara Deploy Cepat via Vercel Dashboard:
-1. Masuk ke [vercel.com](https://vercel.com).
-2. Klik **Add New...** ➜ **Project**.
-3. Hubungkan akun GitHub Anda dan pilih repositori `portofolio-`.
-4. Pada **Build & Output Settings**, biarkan default (karena merupakan static web).
-5. Klik **Deploy** 🚀.
-
-### Atau Deploy via Terminal (Vercel CLI):
-```bash
-npx vercel --prod
-```
+1. Import the repository in [Vercel](https://vercel.com/new).
+2. Leave build commands and output directory as default.
+3. Deploy.
 
 ---
 
-## 📫 Kontak & Kolaborasi
+## 📬 Connect & Professional Inquiries
 
-- 📧 **Email:** [azilatgrn01@gmail.com](mailto:azilatgrn01@gmail.com)
+For professional inquiries, collaboration opportunities, or project discussions:
+
 - 💼 **LinkedIn:** [linkedin.com/in/nurazilatarigan](https://www.linkedin.com/in/nurazilatarigan)
 - 🐙 **GitHub:** [github.com/Azilatarigan01](https://github.com/Azilatarigan01)
-- 💬 **WhatsApp:** [+62 821-7281-2663](https://wa.me/6282172812663)
-- 📍 **Domisili:** Lhokseumawe / Aceh Utara, Indonesia
+- 🌐 **Contact Form:** Accessible directly through the portfolio web application.
 
 ---
 
 <div align="center">
-  <sub>Hak Cipta © 2026 Nur Azila Tarigan, S.Kom. Dilindungi Undang-Undang.</sub>
+  <sub>Developed with ❤️ • Licensed under the <a href="LICENSE">MIT License</a></sub>
 </div>
